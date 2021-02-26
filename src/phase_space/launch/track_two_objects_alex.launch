@@ -10,7 +10,7 @@
  -->
   <arg name="object" default="cepheus" />
   <arg name="object2" default="alxgripper" />
-  <arg name="object3" default="assist_robot" />
+  <!-- <arg name="object3" default="assist_robot" /> -->
 
 
 
@@ -24,7 +24,7 @@
 
   <rosparam command="load" file="$(find phase_space)/config/$(arg object2).yaml" />
 
-  <rosparam command="load" file="$(find phase_space)/config/$(arg object3).yaml" />
+  <!-- <rosparam command="load" file="$(find phase_space)/config/$(arg object3).yaml" /> -->
 
 
 <!--   <node name="track_$(arg object)" pkg="phase_space" type="track_body_node" output="screen">
@@ -42,10 +42,10 @@
         <param name="object_frame" value="$(arg object2)"/>
     </node>
 
-    <node name="track_$(arg object3)" pkg="phase_space" type="track_body_node" output="screen">
+    <!-- <node name="track_$(arg object3)" pkg="phase_space" type="track_body_node" output="screen">
         <param name="reference_frame" value="/map" />
         <param name="object_frame" value="$(arg object3)"/>
-    </node>
+    </node> -->
 
     <!-- <node pkg="robot_state_publisher" type="state_publisher" name="rob2_st_pub" >
         <remap from="robot_description" to="robot_description2" />
@@ -70,13 +70,13 @@
     </group>
 
 
-    <group ns="$(arg object3)">
+    <!-- <group ns="$(arg object3)">
 
-      <!-- load the urdf file of your object -->
+      load the urdf file of your object
       <arg name="model" default="$(find phase_space)/urdf/object.urdf.xacro"/>
       <param name="robot_description" command="$(find xacro)/xacro.py $(arg model) object:=$(arg object)"/>
 
-    </group>
+    </group> -->
 
  <group if="$(arg turn_phase_space_on)">
   <!-- and launch the phase space client -->
